@@ -1,4 +1,4 @@
-package um.edu.uy.Entities;
+package um.edu.uy;
 
 public class CSVLoad {
 }
