@@ -1,12 +1,13 @@
 package um.edu.uy.TADs.Hash;
 
 import um.edu.uy.TADs.Hash.Exceptions.ElementAlreadyExistsException;
-import um.edu.uy.TADs.LinkedList;
-import um.edu.uy.TADs.MyLinkedListImpl;
+
+import um.edu.uy.TADs.LinkedList.MyLinkedList;
+import um.edu.uy.TADs.LinkedList.MyLinkedListImpl;
 
 public class HashLinkedList implements HashTable {
     private int size;
-    private LinkedList<Entry>[] hashTable;
+    private MyLinkedList<Entry>[] hashTable;
 
     public HashLinkedList(int size) {
         this.size = size;
@@ -20,7 +21,7 @@ public class HashLinkedList implements HashTable {
     @Override
     public void insert(String key, Object value) throws ElementAlreadyExistsException {
         int position = Math.abs((key.hashCode())) % size; // el hash puede dar negativo sino uso abs
-        LinkedList<Entry> list = hashTable[position]; // la lista que hay en esa posicion
+        MyLinkedList<Entry> list = hashTable[position]; // la lista que hay en esa posicion
 
         for (Entry entry : list) { // las entradas en esa lista
             if (entry.getKey().equals(key)) {
@@ -35,7 +36,7 @@ public class HashLinkedList implements HashTable {
     @Override
     public boolean belongs(String key) {
         int position = Math.abs((key.hashCode())) % size;
-        LinkedList<Entry> list = hashTable[position]; // la lista que hay en esa posicion
+        MyLinkedList<Entry> list = hashTable[position]; // la lista que hay en esa posicion
 
         for (Entry entry : list) { // las entradas en esa lista
             if (entry.getKey().equals(key)) {
@@ -50,7 +51,7 @@ public class HashLinkedList implements HashTable {
         if (belongs(key)) {
             int position = Math.abs((key.hashCode())) % size;
             int positionList = 0;
-            LinkedList<Entry> list = hashTable[position];
+            MyLinkedList<Entry> list = hashTable[position];
             for (Entry entry : list) {
                 if (entry.getKey().equals(key)) {
                     list.remove(positionList);
