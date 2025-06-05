@@ -1,5 +1,9 @@
 package um.edu.uy.Entities;
 
+
+import lombok.Data;
+
+@Data
 public class Movies {
 
     private boolean belongsToCollection;
@@ -20,31 +24,5 @@ public class Movies {
         this.title = title;
     }
 
-    public boolean isBelongsToCollection() {
-        return belongsToCollection;
-    }
 
-    public int getRevenue() {
-        return revenue;
-    }
-
-    public int getBudget() {
-        return budget;
-    }
-
-    public String[] getGenres() {
-        return genres;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getOriginalLanguage() {
-        return originalLanguage;
-    }
-
-    public String getTitle() {
-        return title;
-    }
 }
